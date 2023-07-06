@@ -1,6 +1,7 @@
 @import "./features/header/header.css";
 @import "./features/sidebar/sidebar.css";
 @import "./features/board/board.css";
+
 :root {
   --primary-bg-color: #ffff;
   --secondary-bg-color: #f4f7fd;
@@ -16,4 +17,4 @@
   min-height: 100vh;
   position: relative;
   background-color: var(--secondary-bg-color);
-}/*# sourceMappingURL=App.css.map */
+}

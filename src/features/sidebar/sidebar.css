@@ -1,0 +1,89 @@
+.sidebar {
+  width: 300px;
+  height: inherit;
+  border-right: 1px solid var(--lines-light);
+  background-color: var(--primary-bg-color);
+}
+.sidebar .all-boards-title {
+  color: var(--medium-grey);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+.sidebar ul {
+  padding: 0;
+}
+.sidebar ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.sidebar ul li .board-btn {
+  cursor: pointer;
+  height: 48px;
+  width: 270px;
+  background-color: inherit;
+  border-radius: 0px 100px 100px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--medium-grey);
+}
+.sidebar ul li .board-btn:hover {
+  background-color: var(--secondary-bg-color);
+  color: var(--main-purple);
+}
+.sidebar ul li .board-btn.active {
+  background-color: var(--main-purple);
+  color: var(--white-text);
+}
+.sidebar ul li .create-new {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--main-purple);
+  font-size: 15px;
+  font-weight: 700;
+}
+.sidebar .theme-selector {
+  padding: 0px;
+  width: 235px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--secondary-bg-color);
+  color: var(--medium-grey);
+}
+.sidebar .theme-selector .form-check-input {
+  border: 0px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill='white'/%3e%3c/svg%3e");
+}
+.sidebar .theme-selector .form-check-input:focus {
+  box-shadow: none;
+}
+.sidebar .hide-sidebar {
+  cursor: pointer;
+  width: 270px;
+  height: 48px;
+  color: var(--medium-grey);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 0px 100px 100px 0px;
+}
+.sidebar .hide-sidebar:hover {
+  background-color: var(--secondary-bg-color);
+  color: var(--main-purple);
+}
+
+.show-sidebar {
+  position: absolute;
+  bottom: 32px;
+  left: 0px;
+  width: 56px;
+  height: 48px;
+  color: var(--white-text);
+  border-radius: 0px 100px 100px 0px;
+  line-height: 44px;
+  font-size: 19px;
+  background-color: var(--main-purple);
+}
+.show-sidebar:hover {
+  background-color: var(--main-purple-hover);
+}/*# sourceMappingURL=sidebar.css.map */

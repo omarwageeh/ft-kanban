@@ -1,0 +1,32 @@
+.header {
+  height: 86px;
+  border-bottom: 1px solid var(--lines-light);
+  background-color: var(--primary-bg-color);
+}
+.header .img-wrapper {
+  width: 300px;
+  border-right: 1px solid var(--lines-light);
+}
+.header .add-new-button {
+  width: 164px;
+  height: 48px;
+  border-radius: 24px;
+  background: var(--main-purple);
+  border: 0px;
+  color: var(--white-text);
+}
+.header .board-name {
+  font-size: 24px;
+  line-height: 42px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.header .dots-button {
+  padding: 0px;
+  width: 4.615px;
+  height: 20px;
+  background-color: var(--primary-bg-color);
+  color: var(--medium-grey);
+  border: 0px;
+}/*# sourceMappingURL=header.css.map */
