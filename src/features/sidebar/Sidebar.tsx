@@ -1,21 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import boardIcon from "../../assets/images/board.png";
 import eyeIcon from "../../assets/images/eye-slash-1.png";
 import "./sidebar.css";
 import { BsMoonStarsFill, BsSunFill, BsEyeFill } from "react-icons/bs";
-
-export default function Sidebar() {
+import { EmptyObject } from "@reduxjs/toolkit";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { selectBoard } from "../board/boardSlice";
+type props = {
+  setShown: Function;
+};
+export default function Sidebar(props: props | null) {
   const [active, setActive] = useState<number | null>(null);
   const [shown, setShown] = useState<boolean>(true);
+  const dispatch = useAppDispatch();
+
+  const boards = useAppSelector((state) => state.board.boards);
+  useEffect(() => {
+    if (boards.length !== 0) {
+      setActive(0);
+    }
+  }, [boards]);
+
   const handleClick = (index: number) => {
     setActive(index);
+    dispatch(selectBoard(index));
   };
   const showSideBar = () => {
     setShown(true);
+    props?.setShown(true);
   };
   const hideSideBar = () => {
     setShown(false);
+    props?.setShown(false);
   };
 
   return (
@@ -26,22 +43,24 @@ export default function Sidebar() {
             {/* <img className="ms-4 mt-4 mb-4" src={logo} alt="" /> */}
             <p className="all-boards-title ms-4">ALL BOARDS (3)</p>
             <ul>
-              <li>
-                <div
-                  className={`d-flex align-items-center board-btn p-3 ${
-                    active === 0 ? "active" : ""
-                  }`}
-                  onClick={() => handleClick(0)}
-                >
-                  <img
-                    className="me-2"
-                    height={"16px"}
-                    src={boardIcon}
-                    alt=""
-                  />
-                  <p style={{ margin: 0 }}>Platform Launch</p>
-                </div>
-              </li>
+              {boards.map((board: any, index) => (
+                <li>
+                  <div
+                    className={`d-flex align-items-center board-btn p-3 ${
+                      active === index ? "active" : ""
+                    }`}
+                    onClick={() => handleClick(index)}
+                  >
+                    <img
+                      className="me-2"
+                      height={"16px"}
+                      src={boardIcon}
+                      alt=""
+                    />
+                    <p style={{ margin: 0 }}>{board.name}</p>
+                  </div>
+                </li>
+              ))}
               <li>
                 <div className="d-flex align-items-center ps-3 pt-3 create-new">
                   <img

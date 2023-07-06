@@ -5,6 +5,8 @@
 body {
   margin: 0;
   font-family: Plus Jakarta Sans;
+  position: relative;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

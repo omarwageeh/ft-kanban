@@ -1,0 +1,24 @@
+.task-card {
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 280px;
+  min-height: 88px;
+  background-color: var(--primary-bg-color);
+  color: var(--black);
+  border-radius: 8px;
+  padding: 23px 16px;
+  box-shadow: 0px 4px 6px 0px rgba(54, 78, 126, 0.1);
+  .task-card-header {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .task-card-subtask-info {
+    color: var(--medium-grey);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  &:hover {
+    color: var(--main-purple-hover);
+  }
+}

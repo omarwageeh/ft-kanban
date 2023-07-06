@@ -1,0 +1,16 @@
+.new-column {
+  cursor: pointer;
+  height: inherit;
+  width: 280px;
+  margin-top: 55px;
+  padding-inline: 55.5px;
+  background-color: var(--primary-bg-color);
+  color: var(--medium-grey);
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--new-col-bg);
+}
+.new-column:hover {
+  color: var(--main-purple-hover);
+}/*# sourceMappingURL=newcolumn.css.map */

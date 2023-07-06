@@ -1,5 +1,7 @@
 .header {
   height: 86px;
+  position: fixed;
+  z-index: 2;
   border-bottom: 1px solid var(--lines-light);
   background-color: var(--primary-bg-color);
 }

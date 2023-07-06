@@ -1,6 +1,7 @@
 .sidebar {
   width: 300px;
-  height: inherit;
+  position: fixed;
+  height: calc(100vh - 85px);
   border-right: 1px solid var(--lines-light);
   background-color: var(--primary-bg-color);
 }
@@ -73,7 +74,7 @@
 }
 
 .show-sidebar {
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   left: 0px;
   width: 56px;
