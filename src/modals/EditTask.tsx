@@ -1,15 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./modals.css";
-import dots from "../assets/images/dotsbutton.png";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { deleteCard, putCardtoList } from "../features/board/boardSlice";
-function usePrevious(value: any) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-  return ref.current;
-}
+import { putCardtoList } from "../features/board/boardSlice";
 
 export default function EditTaskModal({
   lists,

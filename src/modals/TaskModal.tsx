@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./modals.css";
 import dots from "../assets/images/dotsbutton.png";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { deleteCard, putCardtoList } from "../features/board/boardSlice";
+import { putCardtoList } from "../features/board/boardSlice";
 function usePrevious(value: any) {
   const ref = useRef();
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function TaskModal({
                       closeModal("TaskModal");
                       openModal("DeleteTaskModal");
                       //TODO copy Dispatch Action to delete task modal once competeled
-                     // dispatch(deleteCard(card.id));
+                      // dispatch(deleteCard(card.id));
                     }}
                   >
                     Delete Task

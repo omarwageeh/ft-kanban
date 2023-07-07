@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
-import { RootState } from "../../app/store";
+
 
 export interface boardState {
   boards: Array<object>;

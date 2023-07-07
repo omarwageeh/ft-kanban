@@ -18,9 +18,6 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
   const [list, setList] = useState<Array<object> | null>(null);
   const [cards, setCards] = useState<Array<object> | null>(null);
   const { currentBoard } = useAppSelector<any>((state) => state.board);
-  const card = useAppSelector<object | null>(
-    (state) => state.board.selectedCard
-  );
 
   //this useEffect is for fetching the List of columns
   useEffect(() => {
@@ -45,6 +42,7 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
       dispatch(selectCard(card));
     } else if (modal === "EditTaskModal") setEditModalOpen(true);
     else if (modal === "DeleteTaskModal") setDeleteTaskModalOpen(true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const closeModal = useCallback((modal: string) => {
     if (modal === "TaskModal") setModalOpen(false);
