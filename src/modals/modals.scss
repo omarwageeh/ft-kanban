@@ -82,7 +82,7 @@
         text-align: center;
         border: 0px;
         color: var(--white-text);
-        &:hover{
+        &:hover {
           background-color: var(--main-purple-hover);
         }
       }
@@ -162,8 +162,46 @@
         }
       }
     }
-    &.delete-task-modal{
-
+    &.delete-task-modal {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 23px;
+      width: 480px;
+      border-radius: 6px;
+      background: var(--primary-bg-color);
+      .title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .delete-btn {
+        width: 200px;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 23px;
+        text-align: center;
+        color: var(--white-text);
+        background: var(--red);
+        border: 0px;
+        &:hover {
+          background-color: var(--red-hover);
+        }
+      }
+      .cancel-btn {
+        width: 200px;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 23px;
+        border: 0px;
+        text-align: center;
+        border-radius: 20px;
+        color: var(--main-purple);
+        background-color: var(--secondary-btn);
+        &:hover {
+          background-color: var(--secondary-btn-hover);
+        }
+      }
     }
     &.add-task-modal {
     }

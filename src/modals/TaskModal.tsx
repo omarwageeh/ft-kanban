@@ -89,7 +89,7 @@ export default function TaskModal({
                       closeModal("TaskModal");
                       openModal("DeleteTaskModal");
                       //TODO copy Dispatch Action to delete task modal once competeled
-                      // dispatch(deleteCard(card.id));
+                      
                     }}
                   >
                     Delete Task

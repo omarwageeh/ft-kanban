@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchBoards, selectCard } from "./boardSlice";
 import { fetchCards, fetchList } from "./boardAPI";
 import EditTaskModal from "../../modals/EditTask";
+import DeleteTaskModal from "../../modals/DeleteTask";
 
 export default function Board({ shown }: { shown: boolean | null | {} }) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -42,7 +43,7 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
       dispatch(selectCard(card));
     } else if (modal === "EditTaskModal") setEditModalOpen(true);
     else if (modal === "DeleteTaskModal") setDeleteTaskModalOpen(true);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const closeModal = useCallback((modal: string) => {
     if (modal === "TaskModal") setModalOpen(false);
@@ -67,7 +68,9 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
             {cards?.map((card: any, index) => {
               //identifying which card belings to whitch list
               if (card?.idList === item.id) {
-                return <TaskCard key={index} card={card} openModal={openModal} />;
+                return (
+                  <TaskCard key={index} card={card} openModal={openModal} />
+                );
               } else {
                 return null;
               }
@@ -77,11 +80,7 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
       })}
       <NewColumn />
       {modalOpen === true ? (
-        <TaskModal
-          lists={list}
-          closeModal={closeModal}
-          openModal={openModal}
-        />
+        <TaskModal lists={list} closeModal={closeModal} openModal={openModal} />
       ) : (
         ""
       )}
@@ -90,7 +89,11 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
       ) : (
         ""
       )}
-      {deleteTaskModalOpen === true ? "" : ""}
+      {deleteTaskModalOpen === true ? (
+        <DeleteTaskModal closeModal={closeModal} openModal={openModal} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

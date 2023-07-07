@@ -153,4 +153,45 @@
 }
 .modal-wrapper .my-modal.task-modal .selector:focus {
   border: 1px solid var(--main-purple);
+}
+.modal-wrapper .my-modal.delete-task-modal {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  width: 480px;
+  border-radius: 6px;
+  background: var(--primary-bg-color);
+}
+.modal-wrapper .my-modal.delete-task-modal .title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-wrapper .my-modal.delete-task-modal .delete-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  color: var(--white-text);
+  background: var(--red);
+  border: 0px;
+}
+.modal-wrapper .my-modal.delete-task-modal .delete-btn:hover {
+  background-color: var(--red-hover);
+}
+.modal-wrapper .my-modal.delete-task-modal .cancel-btn {
+  width: 200px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 23px;
+  border: 0px;
+  text-align: center;
+  border-radius: 20px;
+  color: var(--main-purple);
+  background-color: var(--secondary-btn);
+}
+.modal-wrapper .my-modal.delete-task-modal .cancel-btn:hover {
+  background-color: var(--secondary-btn-hover);
 }/*# sourceMappingURL=modals.css.map */
