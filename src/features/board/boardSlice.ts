@@ -4,7 +4,6 @@ import { RootState, AppThunk } from "../../app/store";
 export interface boardState {
   boards: Array<object>;
   currentBoard: object;
-  list: Array<object>;
   status: "idle" | "loading" | "success" | "failed";
   error: string | null | undefined;
 }
@@ -12,7 +11,6 @@ export interface boardState {
 const initialState: boardState = {
   boards: [],
   currentBoard: {},
-  list: [],
   status: "idle",
   error: null,
 };
@@ -31,15 +29,6 @@ export const fetchBoards = createAsyncThunk("boards/fetchBoards", async () => {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
-
-// export const incrementAsync = createAsyncThunk(
-//   'counter/fetchCount',
-//   async (amount: number) => {
-//     const response = await fetchCount(amount);
-//     // The value we return becomes the `fulfilled` action payload
-//     return response.data;
-//   }
-//)
 
 export const boardSlice = createSlice({
   name: "board",

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/images/logo.png";
 import boardIcon from "../../assets/images/board.png";
 import eyeIcon from "../../assets/images/eye-slash-1.png";
 import "./sidebar.css";
 import { BsMoonStarsFill, BsSunFill, BsEyeFill } from "react-icons/bs";
-import { EmptyObject } from "@reduxjs/toolkit";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectBoard } from "../board/boardSlice";
 type props = {
@@ -44,7 +42,7 @@ export default function Sidebar(props: props | null) {
             <p className="all-boards-title ms-4">ALL BOARDS (3)</p>
             <ul>
               {boards.map((board: any, index) => (
-                <li>
+                <li key={index}>
                   <div
                     className={`d-flex align-items-center board-btn p-3 ${
                       active === index ? "active" : ""
