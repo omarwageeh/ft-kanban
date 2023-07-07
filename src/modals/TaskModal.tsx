@@ -88,8 +88,6 @@ export default function TaskModal({
                     onClick={() => {
                       closeModal("TaskModal");
                       openModal("DeleteTaskModal");
-                      //TODO copy Dispatch Action to delete task modal once competeled
-                      
                     }}
                   >
                     Delete Task
