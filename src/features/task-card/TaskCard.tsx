@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useAppSelector } from "../../app/hooks";
+
 
 export default function TaskCard({
   card,
-  onClick,
+  openModal,
 }: {
   card: any;
-  onClick: Function;
+  openModal: Function;
 }) {
+
   return (
-    <div className="task-card" onClick={() => onClick()}>
+    <div className="task-card" onClick={()=>openModal("TaskModal",card)}>
       <p className="task-card-header">{card?.name}</p>
       <p className="task-card-subtask-info">0 of 3 subtasks</p>
     </div>

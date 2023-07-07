@@ -18,18 +18,113 @@
   background: var(--primary-bg-color);
   color: var(--medium-grey);
 }
+.modal-wrapper .my-modal.edit-task-modal .input {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  padding: 8px 16px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 4px;
+}
+.modal-wrapper .my-modal.edit-task-modal .input:focus {
+  border: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.edit-task-modal .edit-modal-title {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-wrapper .my-modal.edit-task-modal .edit-modal-text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+}
+.modal-wrapper .my-modal.edit-task-modal .edit-modal-text.input {
+  width: 416px;
+  height: 112px;
+}
+.modal-wrapper .my-modal.edit-task-modal .input-label {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.modal-wrapper .my-modal.edit-task-modal .selector-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medium-grey);
+}
+.modal-wrapper .my-modal.edit-task-modal .selector {
+  width: 416px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.edit-task-modal .selector:focus {
+  border: 1px solid var(--main-purple);
+}
+.modal-wrapper .my-modal.edit-task-modal .save-btn {
+  width: 416px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--main-purple);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  border: 0px;
+  color: var(--white-text);
+}
+.modal-wrapper .my-modal.edit-task-modal .save-btn:hover {
+  background-color: var(--main-purple-hover);
+}
 .modal-wrapper .my-modal.task-modal .task-modal-title {
   color: var(--black);
   font-size: 18px;
   font-weight: 700;
 }
 .modal-wrapper .my-modal.task-modal .dots-button {
+  position: relative;
   padding: 0px;
   width: 4.615px;
   height: 20px;
   background-color: var(--primary-bg-color);
   color: var(--medium-grey);
   border: 0px;
+}
+.modal-wrapper .my-modal.task-modal .dots-button .menu {
+  position: absolute;
+  width: 192px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px 0px rgba(54, 78, 126, 0.25);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  top: 70px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-bg-color);
+}
+.modal-wrapper .my-modal.task-modal .dots-button .menu .edit {
+  text-align: left;
+  color: var(--medium-grey);
+  background-color: inherit;
+  border: 0px;
+}
+.modal-wrapper .my-modal.task-modal .dots-button .menu .delete {
+  color: var(--red);
+  text-align: left;
+  background-color: inherit;
+  border: 0px;
+}
+.modal-wrapper .my-modal.task-modal .dots-button .menu .delete:hover {
+  color: var(--red-hover);
 }
 .modal-wrapper .my-modal.task-modal .task-modal-text {
   font-size: 13px;
@@ -39,4 +134,22 @@
 .modal-wrapper .my-modal.task-modal .task-modal-subtasks-title {
   font-size: 12px;
   font-weight: 700;
+}
+.modal-wrapper .my-modal.task-modal .selector-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medium-grey);
+}
+.modal-wrapper .my-modal.task-modal .selector {
+  width: 416px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.task-modal .selector:focus {
+  border: 1px solid var(--main-purple);
 }/*# sourceMappingURL=modals.css.map */

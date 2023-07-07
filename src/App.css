@@ -14,6 +14,8 @@
   --medium-grey: #828fa3;
   --black: black;
   --lines-light: #e4ebfa;
+  --red: #ea5555;
+  --red-hover: #ff9898;
   --new-col-bg: linear-gradient(
     180deg,
     #e9effa 0%,
@@ -28,4 +30,4 @@
 .App {
   min-height: 100vh;
   background-color: var(--secondary-bg-color);
-}/*# sourceMappingURL=App.css.map */
+} /*# sourceMappingURL=App.css.map */
