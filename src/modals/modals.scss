@@ -94,6 +94,7 @@
         font-weight: 700;
       }
       .dots-button {
+        cursor: pointer;
         position: relative;
         padding: 0px;
         width: 4.615px;
@@ -162,7 +163,7 @@
       }
     }
     &.delete-task-modal{
-      
+
     }
     &.add-task-modal {
     }

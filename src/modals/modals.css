@@ -90,6 +90,7 @@
   font-weight: 700;
 }
 .modal-wrapper .my-modal.task-modal .dots-button {
+  cursor: pointer;
   position: relative;
   padding: 0px;
   width: 4.615px;

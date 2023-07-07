@@ -52,7 +52,7 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
 
   return (
     <div
-      className={`d-flex board mt-3 ps-4 pe-4 ${
+      className={`d-flex board mt-3 ps-4 pe-4 w-100 ${
         shown === true ? "margin-left" : ""
       }`}
     >

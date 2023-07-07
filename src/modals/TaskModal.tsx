@@ -67,7 +67,7 @@ export default function TaskModal({
         <div className="d-flex justify-content-between">
           <p className="task-modal-title">{card?.name}</p>
           <div>
-            <button
+            <div
               className="dots-button"
               onClick={(e) => handleDotsClicked(e)}
             >
@@ -98,7 +98,7 @@ export default function TaskModal({
               ) : (
                 ""
               )}
-            </button>
+            </div>
           </div>
         </div>
         <div className="task-modal-text mb-3">{card?.desc}</div>
