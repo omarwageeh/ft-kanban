@@ -27,7 +27,6 @@ export default function TaskModal({
   const [dotOpen, setDotOpen] = useState<boolean>(false);
   const prevSelected = usePrevious(selected);
   const dispatch = useAppDispatch();
-  const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
   const handleChange = (e: any) => {
     setSelected(e.target.value);
   };
@@ -45,7 +44,6 @@ export default function TaskModal({
             name: card.name,
             desc: card.desc,
             cardId: card.id,
-            currentBoardId: currentBoard.id,
             list: selectedList,
           })
         );
@@ -67,10 +65,7 @@ export default function TaskModal({
         <div className="d-flex justify-content-between">
           <p className="task-modal-title">{card?.name}</p>
           <div>
-            <div
-              className="dots-button"
-              onClick={(e) => handleDotsClicked(e)}
-            >
+            <div className="dots-button" onClick={(e) => handleDotsClicked(e)}>
               <img className="h-100" src={dots} alt="" />
               {dotOpen === true ? (
                 <div className="menu d-flex flex-column p-2">

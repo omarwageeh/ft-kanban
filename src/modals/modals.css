@@ -264,4 +264,70 @@
 }
 .modal-wrapper .my-modal.delete-modal .cancel-btn:hover {
   background-color: var(--secondary-btn-hover);
+}
+.modal-wrapper .my-modal.add-task-modal .input {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  padding: 8px 16px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 4px;
+}
+.modal-wrapper .my-modal.add-task-modal .input:focus {
+  outline: 1px solid var(--main-purple);
+}
+.modal-wrapper .my-modal.add-task-modal .add-task-text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+}
+.modal-wrapper .my-modal.add-task-modal .add-task-text.input {
+  width: 416px;
+  height: 112px;
+}
+.modal-wrapper .my-modal.add-task-modal .add-task-modal-title {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-wrapper .my-modal.add-task-modal .input-label {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.modal-wrapper .my-modal.add-task-modal .create-btn {
+  width: 416px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--main-purple);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  border: 0px;
+  color: var(--white-text);
+}
+.modal-wrapper .my-modal.add-task-modal .create-btn:hover {
+  background-color: var(--main-purple-hover);
+}
+.modal-wrapper .my-modal.add-task-modal .selector-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medium-grey);
+}
+.modal-wrapper .my-modal.add-task-modal .selector {
+  width: 416px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.add-task-modal .selector:focus {
+  outline: 1px solid var(--main-purple);
 }/*# sourceMappingURL=modals.css.map */

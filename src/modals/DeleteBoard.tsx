@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { deleteCard } from "../features/board/boardSlice";
+import { deleteCurrentBoard } from "../features/board/boardSlice";
 
 export default function DeleteBoardModal({
   closeModal,
@@ -28,8 +28,7 @@ export default function DeleteBoardModal({
             className="delete-btn"
             onClick={() => {
               closeModal("DeleteBoardModal");
-              //TODO dispatch delete board action
-              //dispatch(deleteBoard(board.id));
+              dispatch(deleteCurrentBoard(board.id));
             }}
           >
             Delete

@@ -18,7 +18,6 @@ export default function EditTaskModal({
   const [title, setTitle] = useState<string>(card.name);
   const [desc, setDesc] = useState<string>(card.desc);
   const dispatch = useAppDispatch();
-  const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
 
   const saveChanges = () => {
     if (selected !== statusBeforeChange) {
@@ -29,7 +28,6 @@ export default function EditTaskModal({
             name: title,
             desc: desc,
             cardId: card.id,
-            currentBoardId: currentBoard.id,
             list: selectedList,
           })
         );

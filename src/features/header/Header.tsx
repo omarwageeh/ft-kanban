@@ -99,7 +99,7 @@ export const Header = (props?: Props) => {
         </div>
       </div>
       {addTaskModalOpen === true ? (
-        <AddNewTaskModal onClick={closeModal} />
+        <AddNewTaskModal closeModal={closeModal} />
       ) : (
         ""
       )}

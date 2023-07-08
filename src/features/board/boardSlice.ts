@@ -24,13 +24,11 @@ export const putCardtoList = createAsyncThunk(
       name,
       desc,
       cardId,
-      currentBoardId,
       list,
     }: {
       name: string;
       desc: string;
       cardId: string;
-      currentBoardId: string;
       list: any;
     },
     { dispatch }
@@ -71,6 +69,24 @@ export const fetchCurrentBoard = createAsyncThunk(
         `https://api.trello.com/1/boards/${id}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`
       );
       return await response.json();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const deleteCurrentBoard = createAsyncThunk(
+  "boards/deleteBoard",
+  async (id: string, { dispatch }) => {
+    try {
+      const response = await fetch(
+        `https://api.trello.com/1/boards/${id}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        dispatch(fetchBoards());
+      }
     } catch (e) {
       console.log(e);
     }
@@ -171,6 +187,31 @@ export const updateList = createAsyncThunk(
         }
       );
       if (response.status === 200) return dispatch(fetchCurrentBoard(boardId));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const createCard = createAsyncThunk(
+  "boards/createCard",
+  async (
+    { name, desc, id }: { name: string; desc: string; id: string },
+    { dispatch, getState }
+  ) => {
+    try {
+      const state: any = getState();
+      const data = JSON.stringify({ name, desc });
+      const response = await fetch(
+        `https://api.trello.com/1/cards?idList=${id}&key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: data,
+        }
+      );
+      if (response.ok) {
+        dispatch(fetchCurrentBoard(state.board.currentBoard.id));
+      }
     } catch (e) {
       console.log(e);
     }
