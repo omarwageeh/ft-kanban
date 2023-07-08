@@ -1,20 +1,49 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import dots from "../../assets/images/dotsbutton.png";
 import AddNewTaskModal from "../../modals/AddNewTask";
 import { useAppSelector } from "../../app/hooks";
+import EditBoardModal from "../../modals/EditBoard";
+import DeleteBoardModal from "../../modals/DeleteBoard";
 
 type Props = {
   children?: React.ReactNode;
 };
 export const Header = (props?: Props) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [addTaskModalOpen, setAddTaskModalOpen] = useState<boolean>(false);
+  const [deleteBoardModalOpen, setDeleteBoardModalOpen] =
+    useState<boolean>(false);
+  const [editBoardModalOpen, setEditBoardModalOpen] = useState<boolean>(false);
+  const dotsView = useRef<any>();
+  const [dotOpen, setDotOpen] = useState<boolean>(false);
   const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
-  const openModal = useCallback(() => {
-    setModalOpen(true);
+  const openModal = useCallback((modal: string) => {
+    if (modal === "DeleteBoardModal") setDeleteBoardModalOpen(true);
+    else if (modal === "AddNewTaskModal") setAddTaskModalOpen(true);
+    else if (modal === "EditBoardModal") setEditBoardModalOpen(true);
+    else if (modal === "dotOpen") setDotOpen(true);
   }, []);
-  const closeModal = useCallback(() => {
-    setModalOpen(false);
+  const closeModal = useCallback((modal: string) => {
+    if (modal === "DeleteBoardModal") setDeleteBoardModalOpen(false);
+    else if (modal === "AddNewTaskModal") setAddTaskModalOpen(false);
+    else if (modal === "EditBoardModal") setEditBoardModalOpen(false);
+    else if (modal === "dotOpen") setDotOpen(false);
+  }, []);
+
+  //this is so the click outside the dots button closes the edit and delete
+  useEffect(() => {
+    const handleDotsClicked = (event: any) => {
+      if (!dotsView) {
+        return;
+      }
+      if (!dotsView?.current.contains(event.target)) {
+        setDotOpen(false);
+      }
+    };
+    document.addEventListener("click", handleDotsClicked, true);
+    return () => {
+      document.removeEventListener("click", handleDotsClicked);
+    };
   }, []);
   return (
     <>
@@ -28,15 +57,62 @@ export const Header = (props?: Props) => {
           </p>
         </div>
         <div className="d-flex align-items-center  p-3">
-          <button className="add-new-button me-4" onClick={openModal}>
+          <button
+            className="add-new-button me-4"
+            onClick={() => openModal("AddNewTaskModal")}
+          >
             + Add New Task
           </button>
-          <button className="dots-button">
+          <div
+            className="dots-button"
+            ref={dotsView}
+            onClick={() => setDotOpen(true)}
+          >
             <img className="h-100" src={dots} alt="" />
-          </button>
+            {dotOpen === true ? (
+              <div className="menu d-flex flex-column p-2">
+                <button
+                  className="edit mb-1"
+                  onClick={(e) => {
+                    openModal("EditBoardModal");
+                    setDotOpen(false);
+                    e.stopPropagation();
+                  }}
+                >
+                  Edit Board
+                </button>
+                <button
+                  className="delete"
+                  onClick={(e) => {
+                    openModal("DeleteBoardModal");
+                    setDotOpen(false);
+                    e.stopPropagation();
+                  }}
+                >
+                  Delete Board
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
-      {modalOpen === true ? <AddNewTaskModal onClick={closeModal} /> : ""}
+      {addTaskModalOpen === true ? (
+        <AddNewTaskModal onClick={closeModal} />
+      ) : (
+        ""
+      )}
+      {editBoardModalOpen === true ? (
+        <EditBoardModal closeModal={closeModal} />
+      ) : (
+        ""
+      )}
+      {deleteBoardModalOpen === true ? (
+        <DeleteBoardModal closeModal={closeModal} />
+      ) : (
+        ""
+      )}
     </>
   );
 };

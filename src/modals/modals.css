@@ -84,6 +84,76 @@
 .modal-wrapper .my-modal.edit-task-modal .save-btn:hover {
   background-color: var(--main-purple-hover);
 }
+.modal-wrapper .my-modal.edit-board-modal .input {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  padding: 8px 16px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 4px;
+}
+.modal-wrapper .my-modal.edit-board-modal .input:focus {
+  outline: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.edit-board-modal .board-cols {
+  margin-bottom: 12px;
+}
+.modal-wrapper .my-modal.edit-board-modal .board-cols .input {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  padding: 8px 16px;
+  width: 385px;
+  border: 1px solid rgba(130, 143, 163, 0.25);
+  border-radius: 4px;
+}
+.modal-wrapper .my-modal.edit-board-modal .board-cols .input:focus {
+  outline: 1px solid rgba(130, 143, 163, 0.25);
+}
+.modal-wrapper .my-modal.edit-board-modal .edit-board-modal-title {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-wrapper .my-modal.edit-board-modal .input-label {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.modal-wrapper .my-modal.edit-board-modal .add-btn {
+  width: 416px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--secondary-btn);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  border: 0px;
+  color: var(--main-purple);
+}
+.modal-wrapper .my-modal.edit-board-modal .add-btn:hover {
+  background-color: var(--secondary-btn-hover);
+}
+.modal-wrapper .my-modal.edit-board-modal .save-btn {
+  width: 416px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--main-purple);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  border: 0px;
+  color: var(--white-text);
+}
+.modal-wrapper .my-modal.edit-board-modal .save-btn:hover {
+  background-color: var(--main-purple-hover);
+}
 .modal-wrapper .my-modal.task-modal .task-modal-title {
   color: var(--black);
   font-size: 18px;
@@ -154,7 +224,7 @@
 .modal-wrapper .my-modal.task-modal .selector:focus {
   border: 1px solid var(--main-purple);
 }
-.modal-wrapper .my-modal.delete-task-modal {
+.modal-wrapper .my-modal.delete-modal {
   font-size: 13px;
   font-weight: 500;
   line-height: 23px;
@@ -162,11 +232,11 @@
   border-radius: 6px;
   background: var(--primary-bg-color);
 }
-.modal-wrapper .my-modal.delete-task-modal .title {
+.modal-wrapper .my-modal.delete-modal .title {
   font-size: 18px;
   font-weight: 700;
 }
-.modal-wrapper .my-modal.delete-task-modal .delete-btn {
+.modal-wrapper .my-modal.delete-modal .delete-btn {
   width: 200px;
   height: 40px;
   border-radius: 20px;
@@ -178,10 +248,10 @@
   background: var(--red);
   border: 0px;
 }
-.modal-wrapper .my-modal.delete-task-modal .delete-btn:hover {
+.modal-wrapper .my-modal.delete-modal .delete-btn:hover {
   background-color: var(--red-hover);
 }
-.modal-wrapper .my-modal.delete-task-modal .cancel-btn {
+.modal-wrapper .my-modal.delete-modal .cancel-btn {
   width: 200px;
   font-size: 13px;
   font-weight: 700;
@@ -192,6 +262,6 @@
   color: var(--main-purple);
   background-color: var(--secondary-btn);
 }
-.modal-wrapper .my-modal.delete-task-modal .cancel-btn:hover {
+.modal-wrapper .my-modal.delete-modal .cancel-btn:hover {
   background-color: var(--secondary-btn-hover);
 }/*# sourceMappingURL=modals.css.map */

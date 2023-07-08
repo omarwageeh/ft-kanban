@@ -87,6 +87,81 @@
         }
       }
     }
+    &.edit-board-modal {
+      .input {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 23px;
+        padding: 8px 16px;
+        border: 1px solid rgba(130, 143, 163, 0.25);
+        border-radius: 4px;
+        &:focus {
+          outline: 1px solid rgba(130, 143, 163, 0.25);
+        }
+      }
+      .board-cols {
+        margin-bottom: 12px;
+        .input {
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 23px;
+          padding: 8px 16px;
+          width: 385px;
+          border: 1px solid rgba(130, 143, 163, 0.25);
+          border-radius: 4px;
+          &:focus {
+            outline: 1px solid rgba(130, 143, 163, 0.25);
+          }
+        }
+      }
+
+      .edit-board-modal-title {
+        color: var(--black);
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .input-label {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 8px;
+      }
+      .add-btn {
+        width: 416px;
+        height: 40px;
+        border-radius: 20px;
+        background: var(--secondary-btn);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 23px;
+        text-align: center;
+        border: 0px;
+        color: var(--main-purple);
+        &:hover {
+          background-color: var(--secondary-btn-hover);
+        }
+      }
+      .save-btn {
+        width: 416px;
+        height: 40px;
+        border-radius: 20px;
+        background: var(--main-purple);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 23px;
+        text-align: center;
+        border: 0px;
+        color: var(--white-text);
+        &:hover {
+          background-color: var(--main-purple-hover);
+        }
+      }
+    }
+
     &.task-modal {
       .task-modal-title {
         color: var(--black);
@@ -162,7 +237,7 @@
         }
       }
     }
-    &.delete-task-modal {
+    &.delete-modal {
       font-size: 13px;
       font-weight: 500;
       line-height: 23px;

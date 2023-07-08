@@ -25,10 +25,40 @@
   margin-bottom: 0px;
 }
 .header .dots-button {
+  cursor: pointer;
+  position: relative;
   padding: 0px;
   width: 4.615px;
   height: 20px;
   background-color: var(--primary-bg-color);
   color: var(--medium-grey);
   border: 0px;
+}
+.header .dots-button .menu {
+  position: absolute;
+  width: 192px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px 0px rgba(54, 78, 126, 0.25);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  top: 80px;
+  left: -80px;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-bg-color);
+}
+.header .dots-button .menu .edit {
+  text-align: left;
+  color: var(--medium-grey);
+  background-color: inherit;
+  border: 0px;
+}
+.header .dots-button .menu .delete {
+  color: var(--red);
+  text-align: left;
+  background-color: inherit;
+  border: 0px;
+}
+.header .dots-button .menu .delete:hover {
+  color: var(--red-hover);
 }/*# sourceMappingURL=header.css.map */

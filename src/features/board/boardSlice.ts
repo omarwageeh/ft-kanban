@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
 export interface boardState {
   boards: Array<object>;
   currentBoard: object;
+  lists: Array<object> | null;
   selectedCard: object | null;
   status: "idle" | "loading" | "success" | "failed";
   error: string | null | undefined;
@@ -12,6 +12,7 @@ export interface boardState {
 const initialState: boardState = {
   boards: [],
   currentBoard: {},
+  lists: null,
   selectedCard: null,
   status: "idle",
   error: null,
@@ -109,6 +110,9 @@ export const boardSlice = createSlice({
     selectBoard(state, action: PayloadAction<number>) {
       state.currentBoard = state.boards[action.payload];
     },
+    addList(state, action: PayloadAction<Array<object>>) {
+      state.lists = action.payload;
+    },
     selectCard(state, action: PayloadAction<object | null>) {
       state.selectedCard = action.payload;
     },
@@ -150,6 +154,6 @@ export const boardSlice = createSlice({
   },
 });
 
-export const { selectBoard, selectCard } = boardSlice.actions;
+export const { selectBoard, selectCard, addList } = boardSlice.actions;
 
 export default boardSlice.reducer;

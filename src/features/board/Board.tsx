@@ -4,7 +4,7 @@ import Column from "../column/Column";
 import NewColumn from "../new-column/NewColumn";
 import TaskModal from "../../modals/TaskModal";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { fetchBoards, selectCard } from "./boardSlice";
+import { addList, fetchBoards, selectCard } from "./boardSlice";
 import { fetchCards, fetchList } from "./boardAPI";
 import EditTaskModal from "../../modals/EditTask";
 import DeleteTaskModal from "../../modals/DeleteTask";
@@ -26,14 +26,31 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
       dispatch(fetchBoards());
     }
     if (boardStatus === "success") {
-      fetchList(currentBoard.id, setList);
+      (async () => {
+        try {
+          const res = await fetchList(currentBoard.id);
+          setList(res);
+          dispatch(addList(res));
+        } catch (e) {
+          console.log(e);
+        }
+      })();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boardStatus, currentBoard]);
 
   //this useEffect is for fetching the list of Cards for all the board
   useEffect(() => {
-    if (list) fetchCards(currentBoard.id, setCards);
+    if (list) {
+      (async () => {
+        try {
+          const res = await fetchCards(currentBoard.id);
+          setCards(res);
+        } catch (e) {
+          console.log(e);
+        }
+      })();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list]);
 
