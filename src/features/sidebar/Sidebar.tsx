@@ -9,19 +9,20 @@ type props = {
   setShown: Function;
 };
 export default function Sidebar(props: props | null) {
-  const [active, setActive] = useState<number | null>(null);
+  const boards = useAppSelector((state) => state.board.boards);
+  const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
+  const [active, setActive] = useState<any>(currentBoard);
   const [shown, setShown] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 
-  const boards = useAppSelector((state) => state.board.boards);
   useEffect(() => {
     if (boards.length !== 0) {
-      setActive(0);
+      setActive(currentBoard);
     }
   }, [boards]);
 
   const handleClick = (index: number) => {
-    setActive(index);
+    setActive(boards[index]);
     dispatch(selectBoard(index));
   };
   const showSideBar = () => {
@@ -45,7 +46,7 @@ export default function Sidebar(props: props | null) {
                 <li key={index}>
                   <div
                     className={`d-flex align-items-center board-btn p-3 ${
-                      active === index ? "active" : ""
+                      active.name === board.name ? "active" : ""
                     }`}
                     onClick={() => handleClick(index)}
                   >

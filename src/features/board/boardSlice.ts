@@ -76,6 +76,106 @@ export const fetchCurrentBoard = createAsyncThunk(
     }
   }
 );
+export const updateCurrentBoard = createAsyncThunk(
+  "boards/updateBoard",
+  async ({
+    id,
+    name,
+    index,
+  }: {
+    id: string;
+    name: string;
+    index: number | null;
+  }) => {
+    try {
+      const data = JSON.stringify({ name });
+      const response = await fetch(
+        `https://api.trello.com/1/boards/${id}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: data,
+        }
+      );
+      const ret = { data: await response.json(), index };
+      return ret;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const createList = createAsyncThunk(
+  "boards/createList",
+  async (
+    { boardId, name }: { boardId: string; name: string },
+    { dispatch }
+  ) => {
+    try {
+      const response = await fetch(
+        `https://api.trello.com//1/lists?name=${name}&idBoard=${boardId}&key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (response.status === 200) return dispatch(fetchCurrentBoard(boardId));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const deleteList = createAsyncThunk(
+  "boards/updateList",
+  async (
+    { boardId, listId }: { boardId: string; listId: string },
+    { dispatch }
+  ) => {
+    try {
+      const data = JSON.stringify({ closed: true });
+      const response = await fetch(
+        `https://api.trello.com/1/lists/${listId}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: data,
+        }
+      );
+      if (response.status === 200) return dispatch(fetchCurrentBoard(boardId));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+export const updateList = createAsyncThunk(
+  "boards/updateList",
+  async (
+    {
+      boardId,
+      listId,
+      name,
+    }: {
+      boardId: string;
+      listId: string;
+      name: string;
+    },
+    { dispatch }
+  ) => {
+    try {
+      const data = JSON.stringify({ name });
+      const response = await fetch(
+        `https://api.trello.com/1/lists/${listId}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: data,
+        }
+      );
+      if (response.status === 200) return dispatch(fetchCurrentBoard(boardId));
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
 export const deleteCard = createAsyncThunk(
   "boards/deleteCard",
   async (id: string, { dispatch, getState }) => {
@@ -150,6 +250,16 @@ export const boardSlice = createSlice({
       })
       .addCase(putCardtoList.rejected, (state, action) => {
         state.error = action.error.message;
+      })
+      .addCase(
+        updateCurrentBoard.fulfilled,
+        (state, action: PayloadAction<any>) => {
+          state.currentBoard = action.payload.data;
+          state.boards[action.payload.index] = action.payload.data;
+        }
+      )
+      .addCase(updateList.fulfilled, (state, action: PayloadAction<any>) => {
+        state.lists = action.payload;
       });
   },
 });
