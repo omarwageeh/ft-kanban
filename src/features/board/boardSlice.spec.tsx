@@ -1,17 +1,10 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-import React from "react";
-import { render, screen } from "@testing-library/react";
 
-import { Provider } from "react-redux";
-import { store } from "../../app/store";
 import boardReducer, {
   boardState,
   selectBoard,
-  selectCard,
-  addList,
   fetchBoards,
 } from "./boardSlice";
-import Board from "./Board";
 
 describe("board reducer", () => {
   const initialState: boardState = {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./modals.css";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { putCardtoList, updateCard } from "../features/board/boardSlice";
+import { updateCard } from "../features/board/boardSlice";
 
 export default function EditTaskModal({
   lists,
