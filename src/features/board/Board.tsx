@@ -9,6 +9,7 @@ import { fetchCards, fetchList } from "./boardAPI";
 import EditTaskModal from "../../modals/EditTask";
 import DeleteTaskModal from "../../modals/DeleteTask";
 import EditBoardModal from "../../modals/EditBoard";
+import EmptyBoard from "../empty-board/EmptyBoard";
 
 export default function Board({ shown }: { shown: boolean | null | {} }) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -74,32 +75,38 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
 
   return (
     <div
-      className={`d-flex board mt-3 ps-4 pe-4 w-100 ${
-        shown === true ? "margin-left" : ""
+      className={`d-flex board mt-3 ps-4 pe-4 w-100${
+        shown === true ? " margin-left" : ""
       }`}
     >
-      {list?.map((item: any, index: number) => {
-        let listLen = 0;
-        cards?.forEach((card: any) => {
-          if (card.idList === item.id) listLen += 1;
-        });
-        return (
-          <Column key={index}>
-            <p className="col-name">{item.name + " (" + listLen + ")"}</p>
-            {cards?.map((card: any, index) => {
-              //identifying which card belings to whitch list
-              if (card?.idList === item.id) {
-                return (
-                  <TaskCard key={index} card={card} openModal={openModal} />
-                );
-              } else {
-                return null;
-              }
-            })}
-          </Column>
-        );
-      })}
-      <NewColumn openModal={openModal} />
+      {list?.length !== 0 ? (
+        <>
+          {list?.map((item: any, index: number) => {
+            let listLen = 0;
+            cards?.forEach((card: any) => {
+              if (card.idList === item.id) listLen += 1;
+            });
+            return (
+              <Column key={index}>
+                <p className="col-name">{item.name + " (" + listLen + ")"}</p>
+                {cards?.map((card: any, index) => {
+                  //identifying which card belings to whitch list
+                  if (card?.idList === item.id) {
+                    return (
+                      <TaskCard key={index} card={card} openModal={openModal} />
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+              </Column>
+            );
+          })}
+          <NewColumn openModal={openModal} />
+        </>
+      ) : (
+        <EmptyBoard openModal={openModal} />
+      )}
       {modalOpen === true ? (
         <TaskModal lists={list} closeModal={closeModal} openModal={openModal} />
       ) : (

@@ -1,0 +1,20 @@
+.add-new-button {
+  width: 164px;
+  height: 48px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: var(--main-purple);
+  border: 0px;
+  color: var(--white-text);
+}
+
+.empty-board-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--medium-grey);
+}/*# sourceMappingURL=emptyBoard.css.map */
