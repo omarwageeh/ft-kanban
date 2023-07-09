@@ -4,7 +4,7 @@ import Column from "../column/Column";
 import NewColumn from "../new-column/NewColumn";
 import TaskModal from "../../modals/TaskModal";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addList, fetchBoards, selectCard } from "./boardSlice";
+import { addCards, addList, fetchBoards, selectCard } from "./boardSlice";
 import { fetchCards, fetchList } from "./boardAPI";
 import EditTaskModal from "../../modals/EditTask";
 import DeleteTaskModal from "../../modals/DeleteTask";
@@ -49,6 +49,7 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
         try {
           const res = await fetchCards(currentBoard.id);
           setCards(res);
+          dispatch(addCards(res));
         } catch (e) {
           console.log(e);
         }

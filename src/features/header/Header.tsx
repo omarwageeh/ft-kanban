@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import logo from "../../assets/images/logo.png";
+import mobileLogo from "../../assets/images/logo-mobile.png";
 import dots from "../../assets/images/dotsbutton.png";
 import AddNewTaskModal from "../../modals/AddNewTask";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector, useViewPort } from "../../app/hooks";
 import EditBoardModal from "../../modals/EditBoard";
 import DeleteBoardModal from "../../modals/DeleteBoard";
 
@@ -10,6 +11,7 @@ type Props = {
   children?: React.ReactNode;
 };
 export const Header = (props?: Props) => {
+  const { width } = useViewPort();
   const [addTaskModalOpen, setAddTaskModalOpen] = useState<boolean>(false);
   const [deleteBoardModalOpen, setDeleteBoardModalOpen] =
     useState<boolean>(false);
@@ -49,19 +51,37 @@ export const Header = (props?: Props) => {
     <>
       <div className="header d-flex w-100 align-items-center justify-content-between">
         <div className="d-flex align-items-center h-100">
-          <div className="img-wrapper p-3 h-100 align-items-center d-flex flex-shrink-0">
-            <img src={logo} alt="logo" height={"25px"} />
-          </div>
-          <p className="board-name p-3 h-100 text-center">
-            {currentBoard?.name}
-          </p>
+          {width >= 768 ? (
+            <>
+              <div className="img-wrapper p-3 h-100 align-items-center d-flex flex-shrink-0">
+                <img src={logo} alt="logo" height={"25px"} />
+              </div>
+              <p className={`board-name p-3 h-100 text-center`}>
+                {currentBoard?.name}
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="p-2 h-100 align-items-center d-flex flex-shrink-0">
+                <img src={mobileLogo} alt="logo" height={"25px"} />
+              </div>
+              <p
+                className="board-name p-2 h-100 text-center"
+                onClick={() => {
+                  openModal("");
+                }}
+              >
+                {currentBoard?.name}
+              </p>
+            </>
+          )}
         </div>
         <div className="d-flex align-items-center  p-3">
           <button
             className="add-new-button me-4"
             onClick={() => openModal("AddNewTaskModal")}
           >
-            + Add New Task
+            {width >= 768 ? "+ Add New Task" : "+"}
           </button>
           <div
             className="dots-button"

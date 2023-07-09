@@ -23,6 +23,7 @@
     font-weight: 700;
     margin-bottom: 0px;
   }
+
   .dots-button {
     cursor: pointer;
     position: relative;
@@ -59,6 +60,29 @@
         &:hover {
           color: var(--red-hover);
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    height: 64px;
+    .add-new-button {
+      width: 48px;
+      height: 32px;
+      border-radius: 24px;
+      background: var(--main-purple);
+      border: 0px;
+      color: var(--white-text);
+    }
+    .board-name {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 45px;
+      margin-bottom: 0px;
+      &:hover {
+        cursor: pointer;
       }
     }
   }

@@ -25,7 +25,7 @@
         border: 1px solid rgba(130, 143, 163, 0.25);
         border-radius: 4px;
         &:focus {
-          border: 1px solid rgba(130, 143, 163, 0.25);
+          outline: 1px solid var(--main-purple);
         }
       }
 
@@ -39,7 +39,7 @@
         font-weight: 500;
         line-height: 23px;
         &.input {
-          width: 416px;
+          // width: 416px;
           height: 112px;
         }
       }
@@ -59,7 +59,7 @@
         color: var(--medium-grey);
       }
       .selector {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 4px;
         font-size: 13px;
@@ -67,11 +67,11 @@
         line-height: 23px;
         border: 1px solid rgba(130, 143, 163, 0.25);
         &:focus {
-          border: 1px solid var(--main-purple);
+          outline: 1px solid var(--main-purple);
         }
       }
       .save-btn {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 20px;
         background: var(--main-purple);
@@ -96,7 +96,7 @@
         border: 1px solid rgba(130, 143, 163, 0.25);
         border-radius: 4px;
         &:focus {
-          outline: 1px solid rgba(130, 143, 163, 0.25);
+          outline: 1px solid var(--main-purple);
         }
       }
       .board-cols {
@@ -107,11 +107,6 @@
           line-height: 23px;
           padding: 8px 16px;
           width: 385px;
-          border: 1px solid rgba(130, 143, 163, 0.25);
-          border-radius: 4px;
-          &:focus {
-            outline: 1px solid rgba(130, 143, 163, 0.25);
-          }
         }
       }
 
@@ -129,7 +124,7 @@
         margin-bottom: 8px;
       }
       .add-btn {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 20px;
         background: var(--secondary-btn);
@@ -145,7 +140,7 @@
         }
       }
       .save-btn {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 20px;
         background: var(--main-purple);
@@ -179,14 +174,14 @@
         border: 0px;
         .menu {
           position: absolute;
-          width: 192px;
+          width: 120px;
           border-radius: 8px;
           box-shadow: 0px 10px 20px 0px rgba(54, 78, 126, 0.25);
           font-size: 13px;
           font-weight: 500;
           line-height: 23px;
           top: 70px;
-          left: 50%;
+          left: -30px;
 
           transform: translate(-50%, -50%);
           background-color: var(--primary-bg-color);
@@ -224,7 +219,7 @@
         color: var(--medium-grey);
       }
       .selector {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 4px;
         font-size: 13px;
@@ -241,7 +236,7 @@
       font-size: 13px;
       font-weight: 500;
       line-height: 23px;
-      width: 480px;
+      // width: 480px;
       border-radius: 6px;
       background: var(--primary-bg-color);
       .title {
@@ -249,7 +244,7 @@
         font-weight: 700;
       }
       .delete-btn {
-        width: 200px;
+        // width: 200px;
         height: 40px;
         border-radius: 20px;
         font-size: 13px;
@@ -264,7 +259,7 @@
         }
       }
       .cancel-btn {
-        width: 200px;
+        // width: 200px;
         font-size: 13px;
         font-weight: 700;
         line-height: 23px;
@@ -294,10 +289,10 @@
         font-size: 13px;
         font-weight: 500;
         line-height: 23px;
-        &.input {
-          width: 416px;
-          height: 112px;
-        }
+        // &.input {
+        //   width: 416px;
+        //   height: 112px;
+        // }
       }
 
       .add-task-modal-title {
@@ -315,7 +310,7 @@
       }
 
       .create-btn {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 20px;
         background: var(--main-purple);
@@ -338,7 +333,7 @@
         color: var(--medium-grey);
       }
       .selector {
-        width: 416px;
+        // width: 416px;
         height: 40px;
         border-radius: 4px;
         font-size: 13px;
@@ -349,6 +344,14 @@
           outline: 1px solid var(--main-purple);
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-wrapper {
+    .my-modal {
+      width: 375px;
     }
   }
 }

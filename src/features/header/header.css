@@ -61,4 +61,27 @@
 }
 .header .dots-button .menu .delete:hover {
   color: var(--red-hover);
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    height: 64px;
+  }
+  .header .add-new-button {
+    width: 48px;
+    height: 32px;
+    border-radius: 24px;
+    background: var(--main-purple);
+    border: 0px;
+    color: var(--white-text);
+  }
+  .header .board-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 45px;
+    margin-bottom: 0px;
+  }
+  .header .board-name:hover {
+    cursor: pointer;
+  }
 }/*# sourceMappingURL=header.css.map */

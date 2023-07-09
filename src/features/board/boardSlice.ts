@@ -4,6 +4,7 @@ export interface boardState {
   boards: Array<object>;
   currentBoard: object;
   lists: Array<object> | null;
+  cards: Array<object> | null;
   selectedCard: object | null;
   status: "idle" | "loading" | "success" | "failed";
   error: string | null | undefined;
@@ -13,6 +14,7 @@ const initialState: boardState = {
   boards: [],
   currentBoard: {},
   lists: null,
+  cards: null,
   selectedCard: null,
   status: "idle",
   error: null,
@@ -275,6 +277,9 @@ export const boardSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    addCards(state, action: PayloadAction<Array<object>>) {
+      state.cards = action.payload;
+    },
     selectBoard(state, action: PayloadAction<number>) {
       state.currentBoard = state.boards[action.payload];
     },
@@ -335,6 +340,7 @@ export const boardSlice = createSlice({
   },
 });
 
-export const { selectBoard, selectCard, addList } = boardSlice.actions;
+export const { selectBoard, selectCard, addList, addCards } =
+  boardSlice.actions;
 
 export default boardSlice.reducer;

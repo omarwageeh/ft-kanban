@@ -5,4 +5,11 @@
 
 .board {
   overflow-x: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+  .margin-left {
+    -webkit-margin-start: 0px;
+            margin-inline-start: 0px;
+  }
 }/*# sourceMappingURL=board.css.map */

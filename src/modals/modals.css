@@ -27,7 +27,7 @@
   border-radius: 4px;
 }
 .modal-wrapper .my-modal.edit-task-modal .input:focus {
-  border: 1px solid rgba(130, 143, 163, 0.25);
+  outline: 1px solid var(--main-purple);
 }
 .modal-wrapper .my-modal.edit-task-modal .edit-modal-title {
   color: var(--black);
@@ -40,7 +40,6 @@
   line-height: 23px;
 }
 .modal-wrapper .my-modal.edit-task-modal .edit-modal-text.input {
-  width: 416px;
   height: 112px;
 }
 .modal-wrapper .my-modal.edit-task-modal .input-label {
@@ -57,7 +56,6 @@
   color: var(--medium-grey);
 }
 .modal-wrapper .my-modal.edit-task-modal .selector {
-  width: 416px;
   height: 40px;
   border-radius: 4px;
   font-size: 13px;
@@ -66,10 +64,9 @@
   border: 1px solid rgba(130, 143, 163, 0.25);
 }
 .modal-wrapper .my-modal.edit-task-modal .selector:focus {
-  border: 1px solid var(--main-purple);
+  outline: 1px solid var(--main-purple);
 }
 .modal-wrapper .my-modal.edit-task-modal .save-btn {
-  width: 416px;
   height: 40px;
   border-radius: 20px;
   background: var(--main-purple);
@@ -93,7 +90,7 @@
   border-radius: 4px;
 }
 .modal-wrapper .my-modal.edit-board-modal .input:focus {
-  outline: 1px solid rgba(130, 143, 163, 0.25);
+  outline: 1px solid var(--main-purple);
 }
 .modal-wrapper .my-modal.edit-board-modal .board-cols {
   margin-bottom: 12px;
@@ -104,11 +101,6 @@
   line-height: 23px;
   padding: 8px 16px;
   width: 385px;
-  border: 1px solid rgba(130, 143, 163, 0.25);
-  border-radius: 4px;
-}
-.modal-wrapper .my-modal.edit-board-modal .board-cols .input:focus {
-  outline: 1px solid rgba(130, 143, 163, 0.25);
 }
 .modal-wrapper .my-modal.edit-board-modal .edit-board-modal-title {
   color: var(--black);
@@ -123,7 +115,6 @@
   margin-bottom: 8px;
 }
 .modal-wrapper .my-modal.edit-board-modal .add-btn {
-  width: 416px;
   height: 40px;
   border-radius: 20px;
   background: var(--secondary-btn);
@@ -139,7 +130,6 @@
   background-color: var(--secondary-btn-hover);
 }
 .modal-wrapper .my-modal.edit-board-modal .save-btn {
-  width: 416px;
   height: 40px;
   border-radius: 20px;
   background: var(--main-purple);
@@ -171,14 +161,14 @@
 }
 .modal-wrapper .my-modal.task-modal .dots-button .menu {
   position: absolute;
-  width: 192px;
+  width: 120px;
   border-radius: 8px;
   box-shadow: 0px 10px 20px 0px rgba(54, 78, 126, 0.25);
   font-size: 13px;
   font-weight: 500;
   line-height: 23px;
   top: 70px;
-  left: 50%;
+  left: -30px;
   transform: translate(-50%, -50%);
   background-color: var(--primary-bg-color);
 }
@@ -213,7 +203,6 @@
   color: var(--medium-grey);
 }
 .modal-wrapper .my-modal.task-modal .selector {
-  width: 416px;
   height: 40px;
   border-radius: 4px;
   font-size: 13px;
@@ -228,7 +217,6 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 23px;
-  width: 480px;
   border-radius: 6px;
   background: var(--primary-bg-color);
 }
@@ -237,7 +225,6 @@
   font-weight: 700;
 }
 .modal-wrapper .my-modal.delete-modal .delete-btn {
-  width: 200px;
   height: 40px;
   border-radius: 20px;
   font-size: 13px;
@@ -252,7 +239,6 @@
   background-color: var(--red-hover);
 }
 .modal-wrapper .my-modal.delete-modal .cancel-btn {
-  width: 200px;
   font-size: 13px;
   font-weight: 700;
   line-height: 23px;
@@ -281,10 +267,6 @@
   font-weight: 500;
   line-height: 23px;
 }
-.modal-wrapper .my-modal.add-task-modal .add-task-text.input {
-  width: 416px;
-  height: 112px;
-}
 .modal-wrapper .my-modal.add-task-modal .add-task-modal-title {
   color: var(--black);
   font-size: 18px;
@@ -298,7 +280,6 @@
   margin-bottom: 8px;
 }
 .modal-wrapper .my-modal.add-task-modal .create-btn {
-  width: 416px;
   height: 40px;
   border-radius: 20px;
   background: var(--main-purple);
@@ -320,7 +301,6 @@
   color: var(--medium-grey);
 }
 .modal-wrapper .my-modal.add-task-modal .selector {
-  width: 416px;
   height: 40px;
   border-radius: 4px;
   font-size: 13px;
@@ -330,4 +310,10 @@
 }
 .modal-wrapper .my-modal.add-task-modal .selector:focus {
   outline: 1px solid var(--main-purple);
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-wrapper .my-modal {
+    width: 375px;
+  }
 }/*# sourceMappingURL=modals.css.map */
