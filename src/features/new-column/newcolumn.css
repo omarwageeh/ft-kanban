@@ -2,7 +2,7 @@
   cursor: pointer;
   height: inherit;
   width: 280px;
-  margin-top: 55px;
+  margin-top: 48px;
   padding-inline: 55.5px;
   background-color: var(--primary-bg-color);
   color: var(--medium-grey);
@@ -13,4 +13,4 @@
 }
 .new-column:hover {
   color: var(--main-purple-hover);
-}/*# sourceMappingURL=newcolumn.css.map */
+} /*# sourceMappingURL=newcolumn.css.map */

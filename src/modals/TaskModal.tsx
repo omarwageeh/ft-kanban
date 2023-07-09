@@ -51,7 +51,6 @@ export default function TaskModal({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
-  console.log(selected);
 
   return (
     <div className="modal-wrapper" onClick={() => closeModal("TaskModal")}>

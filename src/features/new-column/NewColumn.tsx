@@ -4,7 +4,7 @@ import "./newcolumn.css";
 export default function NewColumn({ openModal }: { openModal: Function }) {
   return (
     <div
-      className="new-column d-flex flex-shrink-0 align-items-center justify-content-center"
+      className="new-column d-flex flex-shrink-0 align-items-center justify-content-center mb-3"
       onClick={() => openModal("EditBoardModal")}
     >
       + New Column

@@ -16,6 +16,20 @@
     border-radius: 6px;
     background: var(--primary-bg-color);
     color: var(--medium-grey);
+    .invalid-input {
+      outline: 1px solid red;
+      position: relative;
+      &::after {
+        position: absolute;
+        left: 2px;
+        top: 50%;
+        content: "Can’t be empty";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 23px;
+      }
+    }
     &.edit-task-modal {
       .input {
         font-size: 13px;
@@ -239,7 +253,8 @@
         line-height: 23px;
         background-color: var(--primary-bg-color);
         color: var(--clear-text);
-        border: 1px solid rgba(130, 143, 163, 0.25);
+        outline: 1px solid rgba(130, 143, 163, 0.25);
+        border: 0;
 
         &:focus {
           border: 1px solid var(--main-purple);

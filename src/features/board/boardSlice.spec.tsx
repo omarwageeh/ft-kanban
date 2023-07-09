@@ -46,22 +46,4 @@ describe("board reducer", () => {
     const actual = boardReducer(initialState, selectBoard(0));
     expect(actual.currentBoard).toEqual(actual.boards[0]);
   });
-
-  it("should handle viewing cards", () => {
-    const actual = boardReducer(initialState, {
-      type: fetchBoards.fulfilled.type,
-    });
-    render(
-      <Provider store={store}>
-        <Board shown={true} />
-      </Provider>
-    );
-    const cards = screen.getAllByRole("card");
-    console.log(cards);
-  });
-
-  // it("should handle empty list", () => {
-  //   const actual = boardReducer(state);
-  // });
-  // it("should handle containing lists");
 });

@@ -10,13 +10,24 @@ export default function EditBoardModal({
 }) {
   const lists = useAppSelector<any>((state) => state.board.lists);
   const [title, setTitle] = useState<string>("");
+  const [titleInvalid, setTitleInvalid] = useState<boolean>(false);
   const [desc, setDesc] = useState<string>("");
   const [selected, setSelected] = useState<string>(lists[0].name);
   const dispatch = useAppDispatch();
+  const validateInput = () => {
+    let isTitleValid;
+    isTitleValid = title !== "";
+    return { isTitleValid };
+  };
   const createTask = () => {
-    const list = lists.find((list: any) => list.name === selected);
-    console.log(selected);
-    dispatch(createCard({ name: title, desc, id: list.id }));
+    const { isTitleValid } = validateInput();
+    if (isTitleValid) {
+      const list = lists.find((list: any) => list.name === selected);
+      dispatch(createCard({ name: title, desc, id: list.id }));
+      closeModal("AddNewTaskModal");
+    } else {
+      setTitleInvalid(true);
+    }
   };
   return (
     <div
@@ -30,10 +41,15 @@ export default function EditBoardModal({
         <p className="add-task-modal-title">Add New Task</p>
         <p className="input-label">Title</p>
         <input
-          className="input mb-2"
+          className={
+            titleInvalid === true ? `input  mb-2 invalid-input` : `input  mb-2 `
+          }
           value={title}
           placeholder="e.g. Take coffee break"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value !== "") setTitleInvalid(false);
+            setTitle(e.target.value);
+          }}
         ></input>
         <p className="input-label">Description</p>
         <textarea
@@ -61,7 +77,6 @@ export default function EditBoardModal({
           className="create-btn mt-4"
           onClick={() => {
             createTask();
-            closeModal("AddNewTaskModal");
           }}
         >
           Create Task

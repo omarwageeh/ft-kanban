@@ -5,11 +5,16 @@ import AddNewTaskModal from "../../modals/AddNewTask";
 import { useAppSelector, useViewPort } from "../../app/hooks";
 import EditBoardModal from "../../modals/EditBoard";
 import DeleteBoardModal from "../../modals/DeleteBoard";
+import { ReactComponent as OpenMenuIcon } from "../../assets/images/openMenu.svg";
+import Menu from "../menu/Menu";
 
-type Props = {
-  children?: React.ReactNode;
-};
-export const Header = (props?: Props) => {
+export const Header = ({
+  theme,
+  setTheme,
+}: {
+  theme: boolean;
+  setTheme: Function;
+}) => {
   const { width } = useViewPort();
   const [addTaskModalOpen, setAddTaskModalOpen] = useState<boolean>(false);
   const [deleteBoardModalOpen, setDeleteBoardModalOpen] =
@@ -17,6 +22,7 @@ export const Header = (props?: Props) => {
   const [editBoardModalOpen, setEditBoardModalOpen] = useState<boolean>(false);
   const dotsView = useRef<any>();
   const [dotOpen, setDotOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
   const lists = useAppSelector<any>((state) => state.board.lists);
   const openModal = useCallback((modal: string) => {
@@ -30,6 +36,12 @@ export const Header = (props?: Props) => {
     else if (modal === "AddNewTaskModal") setAddTaskModalOpen(false);
     else if (modal === "EditBoardModal") setEditBoardModalOpen(false);
     else if (modal === "dotOpen") setDotOpen(false);
+  }, []);
+  const openMenu = useCallback(() => {
+    setMenuOpen(true);
+  }, []);
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
   }, []);
 
   //this is so the click outside the dots button closes the edit and delete
@@ -66,14 +78,17 @@ export const Header = (props?: Props) => {
               <div className="p-2 h-100 align-items-center d-flex flex-shrink-0">
                 <img src={mobileLogo} alt="logo" height={"25px"} />
               </div>
-              <p
-                className="board-name p-2 h-100 text-center"
+              <div
+                className="d-flex align-items-center h-100"
                 onClick={() => {
-                  openModal("");
+                  openMenu();
                 }}
               >
-                {currentBoard?.name}
-              </p>
+                <p className="board-name p-2 h-100 text-center">
+                  {currentBoard?.name}
+                </p>
+                <OpenMenuIcon />
+              </div>
             </>
           )}
         </div>
@@ -132,6 +147,11 @@ export const Header = (props?: Props) => {
       )}
       {deleteBoardModalOpen === true ? (
         <DeleteBoardModal closeModal={closeModal} />
+      ) : (
+        ""
+      )}
+      {menuOpen === true ? (
+        <Menu closeMenu={closeMenu} theme={theme} setTheme={setTheme} />
       ) : (
         ""
       )}

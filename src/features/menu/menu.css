@@ -1,0 +1,78 @@
+.modal-wrapper {
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal-wrapper .my-modal {
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 264px;
+  border-radius: 6px;
+  background: var(--primary-bg-color);
+  color: var(--medium-grey);
+  background-color: var(--primary-bg-color);
+}
+.modal-wrapper .my-modal .all-boards-title {
+  color: var(--medium-grey);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+.modal-wrapper .my-modal.menu {
+  padding: 16px 0px;
+}
+.modal-wrapper .my-modal.menu ul {
+  list-style: none;
+  padding: 0;
+}
+.modal-wrapper .my-modal.menu ul li {
+  margin-right: 24px;
+  list-style: none;
+  margin-bottom: 10px;
+}
+.modal-wrapper .my-modal.menu ul li .board-btn {
+  cursor: pointer;
+  height: 48px;
+  background-color: inherit;
+  border-radius: 0px 100px 100px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--medium-grey);
+}
+.modal-wrapper .my-modal.menu ul li .board-btn:hover {
+  background-color: var(--secondary-bg-color);
+  color: var(--main-purple);
+}
+.modal-wrapper .my-modal.menu ul li .board-btn.active {
+  background-color: var(--main-purple);
+  color: var(--white-text);
+}
+.modal-wrapper .my-modal.menu ul li .create-new {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--main-purple);
+  font-size: 15px;
+  font-weight: 700;
+}
+.modal-wrapper .my-modal.menu .theme-selector {
+  padding: 0px;
+  width: 235px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--secondary-bg-color);
+  color: var(--medium-grey);
+}
+.modal-wrapper .my-modal.menu .theme-selector .form-check-input {
+  border: 0px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill='white'/%3e%3c/svg%3e");
+}
+.modal-wrapper .my-modal.menu .theme-selector .form-check-input:focus {
+  box-shadow: none;
+}/*# sourceMappingURL=menu.css.map */

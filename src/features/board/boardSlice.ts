@@ -246,6 +246,37 @@ export const createCard = createAsyncThunk(
     }
   }
 );
+export const updateCard = createAsyncThunk(
+  "boards/updateCard",
+  async (
+    {
+      name,
+      desc,
+      id,
+      idList,
+    }: { name: string; desc: string; id: string; idList: string },
+    { dispatch, getState }
+  ) => {
+    try {
+      const state: any = getState();
+      console.log(idList);
+      const data = JSON.stringify({ name, desc, idList });
+      const response = await fetch(
+        `https://api.trello.com/1/cards/${id}?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: data,
+        }
+      );
+      if (response.ok) {
+        dispatch(fetchCurrentBoard(state.board.currentBoard.id));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
 export const deleteCard = createAsyncThunk(
   "boards/deleteCard",
   async (id: string, { dispatch, getState }) => {
@@ -298,7 +329,6 @@ export const boardSlice = createSlice({
       .addCase(fetchBoards.fulfilled, (state, action) => {
         state.status = "success";
         state.boards = action.payload?.res;
-        console.log(action.payload);
         state.currentBoard =
           action.payload?.name !== undefined
             ? state.boards.find(

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./modals.css";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { putCardtoList } from "../features/board/boardSlice";
+import { putCardtoList, updateCard } from "../features/board/boardSlice";
 
 export default function EditTaskModal({
   lists,
@@ -16,22 +16,38 @@ export default function EditTaskModal({
   ).name;
   const [selected, setSelected] = useState<any>(statusBeforeChange);
   const [title, setTitle] = useState<string>(card.name);
+  const [titleInvalid, setTitleInvalid] = useState<boolean>(false);
   const [desc, setDesc] = useState<string>(card.desc);
   const dispatch = useAppDispatch();
-
+  const validateInput = () => {
+    let isTitleValid;
+    isTitleValid = title.length !== 0;
+    setTitleInvalid(!isTitleValid);
+    return { isTitleValid };
+  };
   const saveChanges = () => {
-    if (selected !== statusBeforeChange) {
-      const selectedList = lists.find((item: any) => item.name === selected);
-      if (selectedList) {
-        dispatch(
-          putCardtoList({
-            name: title,
-            desc: desc,
-            cardId: card.id,
-            list: selectedList,
-          })
-        );
+    const { isTitleValid } = validateInput();
+    if (isTitleValid) {
+      if (
+        card.desc !== desc ||
+        card.name !== title ||
+        selected !== statusBeforeChange
+      ) {
+        const selectedListId: string = lists.find(
+          (item: any) => item.name === selected
+        ).id;
+        if (selectedListId) {
+          dispatch(
+            updateCard({
+              name: title,
+              desc,
+              id: card.id,
+              idList: selectedListId,
+            })
+          );
+        }
       }
+      closeModal("TaskEditModal");
     }
   };
 
@@ -44,10 +60,15 @@ export default function EditTaskModal({
         <p className="edit-modal-title">Edit Task</p>
         <p className="input-label">Title</p>
         <input
-          className="input mb-2"
+          className={
+            titleInvalid === true ? `input  mb-2 invalid-input` : `input  mb-2 `
+          }
           value={title}
           placeholder="e.g. Take coffee break"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            if (e.target.value !== "") setTitleInvalid(false);
+            setTitle(e.target.value);
+          }}
         ></input>
         <p className="input-label">Description</p>
         <textarea
@@ -76,7 +97,6 @@ export default function EditTaskModal({
           className="save-btn mt-4"
           onClick={() => {
             saveChanges();
-            closeModal("EditTaskModal");
           }}
         >
           Save Changes

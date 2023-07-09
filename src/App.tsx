@@ -6,7 +6,7 @@ import "./App.css";
 import { useViewPort } from "./app/hooks";
 
 function App() {
-  const [shown, setShown] = useState<boolean | null>(true);
+  const [shown, setShown] = useState<boolean>(true);
   const [theme, setTheme] = useState<boolean>(false);
   const ref: any = useRef(null);
   const { width } = useViewPort();
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App d-flex flex-column" ref={ref}>
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <div className="d-flex flex-grow-1 main-body">
         {width >= 768 ? (
           <Sidebar setShown={setShown} theme={theme} setTheme={setTheme} />

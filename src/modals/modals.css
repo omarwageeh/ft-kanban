@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .modal-wrapper {
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
@@ -17,6 +18,20 @@
   border-radius: 6px;
   background: var(--primary-bg-color);
   color: var(--medium-grey);
+}
+.modal-wrapper .my-modal .invalid-input {
+  outline: 1px solid red;
+  position: relative;
+}
+.modal-wrapper .my-modal .invalid-input::after {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  content: "Can’t be empty";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
 }
 .modal-wrapper .my-modal.edit-task-modal .input {
   font-size: 13px;
@@ -222,7 +237,8 @@
   line-height: 23px;
   background-color: var(--primary-bg-color);
   color: var(--clear-text);
-  border: 1px solid rgba(130, 143, 163, 0.25);
+  outline: 1px solid rgba(130, 143, 163, 0.25);
+  border: 0;
 }
 .modal-wrapper .my-modal.task-modal .selector:focus {
   border: 1px solid var(--main-purple);
