@@ -3,7 +3,7 @@
 }
 
 .board {
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 @media only screen and (max-width: 768px) {
