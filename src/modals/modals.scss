@@ -123,6 +123,10 @@
         line-height: normal;
         margin-bottom: 8px;
       }
+      .scroll-columns {
+        max-height: 300px;
+        overflow: auto;
+      }
       .add-btn {
         // width: 416px;
         height: 40px;
@@ -242,9 +246,10 @@
       .title {
         font-size: 18px;
         font-weight: 700;
+        color: var(--red);
       }
       .delete-btn {
-        // width: 200px;
+        width: 200px;
         height: 40px;
         border-radius: 20px;
         font-size: 13px;
@@ -259,8 +264,9 @@
         }
       }
       .cancel-btn {
-        // width: 200px;
+        width: 200px;
         font-size: 13px;
+        height: 40px;
         font-weight: 700;
         line-height: 23px;
         border: 0px;
@@ -284,6 +290,9 @@
         &:focus {
           outline: 1px solid var(--main-purple);
         }
+      }
+      textarea.input {
+        height: 112px;
       }
       .add-task-text {
         font-size: 13px;
@@ -351,7 +360,23 @@
 @media only screen and (max-width: 768px) {
   .modal-wrapper {
     .my-modal {
-      width: 375px;
+      padding: 24px;
+      width: 343px;
+      &.delete-modal {
+        .btn-wrapper {
+          flex-direction: column;
+          .delete-btn {
+            width: auto;
+          }
+          .cancel-btn {
+            width: auto;
+          }
+
+          :first-child {
+            margin-bottom: 16px;
+          }
+        }
+      }
     }
   }
 }

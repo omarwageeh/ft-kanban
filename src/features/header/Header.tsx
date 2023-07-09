@@ -19,6 +19,7 @@ export const Header = (props?: Props) => {
   const dotsView = useRef<any>();
   const [dotOpen, setDotOpen] = useState<boolean>(false);
   const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
+  const lists = useAppSelector<any>((state) => state.board.lists);
   const openModal = useCallback((modal: string) => {
     if (modal === "DeleteBoardModal") setDeleteBoardModalOpen(true);
     else if (modal === "AddNewTaskModal") setAddTaskModalOpen(true);
@@ -80,6 +81,7 @@ export const Header = (props?: Props) => {
           <button
             className="add-new-button me-4"
             onClick={() => openModal("AddNewTaskModal")}
+            disabled={lists?.length === 0 ? true : false}
           >
             {width >= 768 ? "+ Add New Task" : "+"}
           </button>

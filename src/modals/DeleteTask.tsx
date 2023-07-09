@@ -25,7 +25,7 @@ export default function DeleteTaskModal({
           Are you sure you want to delete the ‘{card.name}’ task and its
           subtasks? This action cannot be reversed.
         </p>
-        <div className="d-flex justify-content-between">
+        <div className="btn-wrapper d-flex justify-content-between">
           <button
             className="delete-btn"
             onClick={() => {

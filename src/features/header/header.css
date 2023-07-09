@@ -17,6 +17,9 @@
   border: 0px;
   color: var(--white-text);
 }
+.header .add-new-button:disabled {
+  background-color: rgba(99, 95, 199, 0.3);
+}
 .header .board-name {
   font-size: 24px;
   line-height: 42px;

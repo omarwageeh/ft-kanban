@@ -92,17 +92,19 @@ export default function EditBoardModal({
           onChange={(e) => setName(e.target.value)}
         ></input>
         <p className="input-label">Board Columns</p>
-        {cols?.map((list: any, index: number) => (
-          <div className="d-flex align-items-center board-cols" key={list.id}>
-            <input
-              className="input  me-3"
-              value={list.name !== undefined ? list.name : ""}
-              placeholder="e.g. Make coffee"
-              onChange={(e) => setCols(mutateList(list.id, e.target.value))}
-            ></input>
-            <CloseIcon onClick={() => setCols(removeList(list.id))} />
-          </div>
-        ))}
+        <div className="scroll-columns">
+          {cols?.map((list: any, index: number) => (
+            <div className="d-flex align-items-center board-cols" key={index}>
+              <input
+                className="input  me-3"
+                value={list.name !== undefined ? list.name : ""}
+                placeholder="e.g. Make coffee"
+                onChange={(e) => setCols(mutateList(list.id, e.target.value))}
+              ></input>
+              <CloseIcon onClick={() => setCols(removeList(list.id))} />
+            </div>
+          ))}
+        </div>
         <button className="add-btn" onClick={() => setCols(addList())}>
           + Add New Column
         </button>

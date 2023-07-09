@@ -23,7 +23,7 @@ export default function DeleteBoardModal({
           Are you sure you want to delete the ‘{board.name}’ board? This action
           will remove all columns and tasks and cannot be reversed.
         </p>
-        <div className="d-flex justify-content-between">
+        <div className="btn-wrapper d-flex justify-content-between">
           <button
             className="delete-btn"
             onClick={() => {

@@ -114,6 +114,10 @@
   line-height: normal;
   margin-bottom: 8px;
 }
+.modal-wrapper .my-modal.edit-board-modal .scroll-columns {
+  max-height: 300px;
+  overflow: auto;
+}
 .modal-wrapper .my-modal.edit-board-modal .add-btn {
   height: 40px;
   border-radius: 20px;
@@ -223,8 +227,10 @@
 .modal-wrapper .my-modal.delete-modal .title {
   font-size: 18px;
   font-weight: 700;
+  color: var(--red);
 }
 .modal-wrapper .my-modal.delete-modal .delete-btn {
+  width: 200px;
   height: 40px;
   border-radius: 20px;
   font-size: 13px;
@@ -239,7 +245,9 @@
   background-color: var(--red-hover);
 }
 .modal-wrapper .my-modal.delete-modal .cancel-btn {
+  width: 200px;
   font-size: 13px;
+  height: 40px;
   font-weight: 700;
   line-height: 23px;
   border: 0px;
@@ -261,6 +269,9 @@
 }
 .modal-wrapper .my-modal.add-task-modal .input:focus {
   outline: 1px solid var(--main-purple);
+}
+.modal-wrapper .my-modal.add-task-modal textarea.input {
+  height: 112px;
 }
 .modal-wrapper .my-modal.add-task-modal .add-task-text {
   font-size: 13px;
@@ -314,6 +325,19 @@
 
 @media only screen and (max-width: 768px) {
   .modal-wrapper .my-modal {
-    width: 375px;
+    padding: 24px;
+    width: 343px;
+  }
+  .modal-wrapper .my-modal.delete-modal .btn-wrapper {
+    flex-direction: column;
+  }
+  .modal-wrapper .my-modal.delete-modal .btn-wrapper .delete-btn {
+    width: auto;
+  }
+  .modal-wrapper .my-modal.delete-modal .btn-wrapper .cancel-btn {
+    width: auto;
+  }
+  .modal-wrapper .my-modal.delete-modal .btn-wrapper :first-child {
+    margin-bottom: 16px;
   }
 }/*# sourceMappingURL=modals.css.map */
