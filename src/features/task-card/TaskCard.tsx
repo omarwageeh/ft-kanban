@@ -6,11 +6,7 @@ export default function TaskCard({
   openModal: Function;
 }) {
   return (
-    <div
-      className="task-card"
-      onClick={() => openModal("TaskModal", card)}
-      role="card"
-    >
+    <div className="task-card" onClick={() => openModal("TaskModal", card)}>
       <p className="task-card-header">{card?.name}</p>
       <p className="task-card-subtask-info">0 of 3 subtasks</p>
     </div>

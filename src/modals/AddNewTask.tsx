@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./modals.css";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { useDispatch } from "react-redux";
 import { createCard } from "../features/board/boardSlice";
 
 export default function EditBoardModal({

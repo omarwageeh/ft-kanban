@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
-import logo from "../../assets/images/logo.png";
 import mobileLogo from "../../assets/images/logo-mobile.png";
 import dots from "../../assets/images/dotsbutton.png";
 import AddNewTaskModal from "../../modals/AddNewTask";
