@@ -5,10 +5,12 @@ import "./sidebar.css";
 import { BsMoonStarsFill, BsSunFill, BsEyeFill } from "react-icons/bs";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectBoard } from "../board/boardSlice";
+import AddNewBoardModal from "../../modals/AddNewBoard";
 type props = {
   setShown: Function;
 };
 export default function Sidebar(props: props | null) {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const boards = useAppSelector((state) => state.board.boards);
   const currentBoard = useAppSelector<any>((state) => state.board.currentBoard);
   const [active, setActive] = useState<any>(currentBoard);
@@ -19,7 +21,14 @@ export default function Sidebar(props: props | null) {
     if (boards.length !== 0) {
       setActive(currentBoard);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boards]);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleClick = (index: number) => {
     setActive(boards[index]);
@@ -40,7 +49,9 @@ export default function Sidebar(props: props | null) {
         <div className="sidebar d-flex  flex-column justify-content-between pt-2 pb-3 flex-shrink-0">
           <div className="top-part">
             {/* <img className="ms-4 mt-4 mb-4" src={logo} alt="" /> */}
-            <p className="all-boards-title ms-4">ALL BOARDS (3)</p>
+            <p className="all-boards-title ms-4">
+              ALL BOARDS ({boards.length})
+            </p>
             <ul>
               {boards.map((board: any, index) => (
                 <li key={index}>
@@ -61,7 +72,10 @@ export default function Sidebar(props: props | null) {
                 </li>
               ))}
               <li>
-                <div className="d-flex align-items-center ps-3 pt-3 create-new">
+                <div
+                  className="d-flex align-items-center ps-3 pt-3 create-new "
+                  onClick={openModal}
+                >
                   <img
                     className="me-2"
                     height={"16px"}
@@ -103,6 +117,7 @@ export default function Sidebar(props: props | null) {
           <BsEyeFill />
         </div>
       )}
+      {modalOpen === true ? <AddNewBoardModal closeModal={closeModal} /> : ""}
     </>
   );
 }

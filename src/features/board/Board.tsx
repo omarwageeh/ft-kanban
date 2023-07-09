@@ -8,10 +8,12 @@ import { addList, fetchBoards, selectCard } from "./boardSlice";
 import { fetchCards, fetchList } from "./boardAPI";
 import EditTaskModal from "../../modals/EditTask";
 import DeleteTaskModal from "../../modals/DeleteTask";
+import EditBoardModal from "../../modals/EditBoard";
 
 export default function Board({ shown }: { shown: boolean | null | {} }) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
+  const [editTaskModalOpen, setEditTaskModalOpen] = useState<boolean>(false);
+  const [editBoardModalOpen, setEditBoardModalOpen] = useState<boolean>(false);
   const [deleteTaskModalOpen, setDeleteTaskModalOpen] =
     useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -58,14 +60,16 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
     if (modal === "TaskModal") {
       setModalOpen(true);
       dispatch(selectCard(card));
-    } else if (modal === "EditTaskModal") setEditModalOpen(true);
+    } else if (modal === "EditTaskModal") setEditTaskModalOpen(true);
     else if (modal === "DeleteTaskModal") setDeleteTaskModalOpen(true);
+    else if (modal === "EditBoardModal") setEditBoardModalOpen(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const closeModal = useCallback((modal: string) => {
     if (modal === "TaskModal") setModalOpen(false);
-    else if (modal === "EditTaskModal") setEditModalOpen(false);
+    else if (modal === "EditTaskModal") setEditTaskModalOpen(false);
     else if (modal === "DeleteTaskModal") setDeleteTaskModalOpen(false);
+    else if (modal === "EditBoardModal") setEditBoardModalOpen(false);
   }, []);
 
   return (
@@ -95,19 +99,24 @@ export default function Board({ shown }: { shown: boolean | null | {} }) {
           </Column>
         );
       })}
-      <NewColumn />
+      <NewColumn openModal={openModal} />
       {modalOpen === true ? (
         <TaskModal lists={list} closeModal={closeModal} openModal={openModal} />
       ) : (
         ""
       )}
-      {editModalOpen === true ? (
+      {editTaskModalOpen === true ? (
         <EditTaskModal lists={list} closeModal={closeModal} />
       ) : (
         ""
       )}
       {deleteTaskModalOpen === true ? (
         <DeleteTaskModal closeModal={closeModal} openModal={openModal} />
+      ) : (
+        ""
+      )}
+      {editBoardModalOpen === true ? (
+        <EditBoardModal closeModal={closeModal} />
       ) : (
         ""
       )}

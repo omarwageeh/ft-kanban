@@ -67,7 +67,7 @@ export default function EditBoardModal({
           updateList({ listId: col.id, boardId: board.id, name: col.name })
         );
       } else if (col.hasOwnProperty("id") === false) {
-        dispatch(createList({ boardId: board.id, name: col.name }));
+        dispatch(createList({ name: col.name }));
       }
     });
 

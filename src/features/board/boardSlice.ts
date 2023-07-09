@@ -51,16 +51,44 @@ export const putCardtoList = createAsyncThunk(
     }
   }
 );
-export const fetchBoards = createAsyncThunk("boards/fetchBoards", async () => {
-  try {
-    const response = await fetch(
-      "https://api.trello.com/1/members/me/boards?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205"
-    );
-    return await response.json();
-  } catch (e) {
-    console.log(e);
+
+export const createBoard = createAsyncThunk(
+  "boards/createBoard",
+  async (
+    { name, listNames }: { name: string; listNames: Array<string> },
+    { dispatch, getState }
+  ) => {
+    try {
+      const response = await fetch(
+        `https://api.trello.com/1/boards/?name=${name}&defaultLists=false&key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        {
+          method: "POST",
+        }
+      );
+      await dispatch(fetchBoards(name));
+      listNames.forEach((name) => dispatch(createList({ name })));
+      return await response.json();
+    } catch (e) {
+      console.log(e);
+    }
   }
-});
+);
+export const fetchBoards = createAsyncThunk(
+  "boards/fetchBoards",
+  async (name: string | undefined, { dispatch, getState }) => {
+    try {
+      const response = await fetch(
+        "https://api.trello.com/1/members/me/boards?key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205"
+      );
+      const res = await response.json();
+
+      return { res, name };
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
 export const fetchCurrentBoard = createAsyncThunk(
   "boards/fetchBoard",
   async (id: string) => {
@@ -122,19 +150,18 @@ export const updateCurrentBoard = createAsyncThunk(
 );
 export const createList = createAsyncThunk(
   "boards/createList",
-  async (
-    { boardId, name }: { boardId: string; name: string },
-    { dispatch }
-  ) => {
+  async ({ name }: { name: string }, { dispatch, getState }) => {
     try {
+      const state: any = getState();
       const response = await fetch(
-        `https://api.trello.com//1/lists?name=${name}&idBoard=${boardId}&key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
+        `https://api.trello.com//1/lists?name=${name}&idBoard=${state.board.currentBoard.id}&key=d24452340ed920b2ef39bc3bcb2e0c55&token=ATTAc6e3c5635737b7e1c81e3f7c592b38101e9d80d29add76a89073726230a7f3b5EDCDD205`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
         }
       );
-      if (response.status === 200) return dispatch(fetchCurrentBoard(boardId));
+      if (response.status === 200)
+        return dispatch(fetchCurrentBoard(state.board.currentBoard.id));
     } catch (e) {
       console.log(e);
     }
@@ -263,14 +290,17 @@ export const boardSlice = createSlice({
       .addCase(fetchBoards.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(
-        fetchBoards.fulfilled,
-        (state, action: PayloadAction<Array<object>>) => {
-          state.status = "success";
-          state.boards = action.payload;
-          state.currentBoard = action?.payload?.[0];
-        }
-      )
+      .addCase(fetchBoards.fulfilled, (state, action) => {
+        state.status = "success";
+        state.boards = action.payload?.res;
+        console.log(action.payload);
+        state.currentBoard =
+          action.payload?.name !== undefined
+            ? state.boards.find(
+                (item: any) => item.name === action.payload?.name
+              )
+            : action.payload?.res?.[0];
+      })
       .addCase(fetchBoards.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
