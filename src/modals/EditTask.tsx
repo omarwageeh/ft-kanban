@@ -47,7 +47,7 @@ export default function EditTaskModal({
           );
         }
       }
-      closeModal("TaskEditModal");
+      closeModal("EditTaskModal");
     }
   };
 
