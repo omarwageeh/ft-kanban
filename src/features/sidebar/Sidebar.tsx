@@ -8,6 +8,8 @@ import { selectBoard } from "../board/boardSlice";
 import AddNewBoardModal from "../../modals/AddNewBoard";
 type props = {
   setShown: Function;
+  setTheme: Function;
+  theme: boolean;
 };
 export default function Sidebar(props: props | null) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -98,7 +100,8 @@ export default function Sidebar(props: props | null) {
                   role="switch"
                   id="flexSwitchCheckDefault"
                   style={{ backgroundColor: "#635fc7" }}
-                  // onClick={() => setTheme((theme) => !theme)}
+                  defaultChecked={props?.theme}
+                  onClick={() => props?.setTheme((theme: boolean) => !theme)}
                 />
                 <BsMoonStarsFill className="ms-3" />
               </div>

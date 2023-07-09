@@ -24,13 +24,15 @@
   line-height: 23px;
   padding: 8px 16px;
   border: 1px solid rgba(130, 143, 163, 0.25);
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
   border-radius: 4px;
 }
 .modal-wrapper .my-modal.edit-task-modal .input:focus {
   outline: 1px solid var(--main-purple);
 }
 .modal-wrapper .my-modal.edit-task-modal .edit-modal-title {
-  color: var(--black);
+  color: var(--clear-text);
   font-size: 18px;
   font-weight: 700;
 }
@@ -48,12 +50,13 @@
   font-weight: 700;
   line-height: normal;
   margin-bottom: 8px;
+  color: var(--label);
 }
 .modal-wrapper .my-modal.edit-task-modal .selector-label {
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--medium-grey);
+  color: var(--label);
 }
 .modal-wrapper .my-modal.edit-task-modal .selector {
   height: 40px;
@@ -62,6 +65,8 @@
   font-weight: 500;
   line-height: 23px;
   border: 1px solid rgba(130, 143, 163, 0.25);
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
 }
 .modal-wrapper .my-modal.edit-task-modal .selector:focus {
   outline: 1px solid var(--main-purple);
@@ -88,6 +93,8 @@
   padding: 8px 16px;
   border: 1px solid rgba(130, 143, 163, 0.25);
   border-radius: 4px;
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
 }
 .modal-wrapper .my-modal.edit-board-modal .input:focus {
   outline: 1px solid var(--main-purple);
@@ -103,7 +110,7 @@
   width: 385px;
 }
 .modal-wrapper .my-modal.edit-board-modal .edit-board-modal-title {
-  color: var(--black);
+  color: var(--clear-text);
   font-size: 18px;
   font-weight: 700;
 }
@@ -113,6 +120,7 @@
   font-weight: 700;
   line-height: normal;
   margin-bottom: 8px;
+  color: var(--label);
 }
 .modal-wrapper .my-modal.edit-board-modal .scroll-columns {
   max-height: 300px;
@@ -149,7 +157,7 @@
   background-color: var(--main-purple-hover);
 }
 .modal-wrapper .my-modal.task-modal .task-modal-title {
-  color: var(--black);
+  color: var(--clear-text);
   font-size: 18px;
   font-weight: 700;
 }
@@ -212,6 +220,8 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 23px;
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
   border: 1px solid rgba(130, 143, 163, 0.25);
 }
 .modal-wrapper .my-modal.task-modal .selector:focus {
@@ -265,6 +275,8 @@
   line-height: 23px;
   padding: 8px 16px;
   border: 1px solid rgba(130, 143, 163, 0.25);
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
   border-radius: 4px;
 }
 .modal-wrapper .my-modal.add-task-modal .input:focus {
@@ -279,7 +291,7 @@
   line-height: 23px;
 }
 .modal-wrapper .my-modal.add-task-modal .add-task-modal-title {
-  color: var(--black);
+  color: var(--clear-text);
   font-size: 18px;
   font-weight: 700;
 }
@@ -289,6 +301,7 @@
   font-weight: 700;
   line-height: normal;
   margin-bottom: 8px;
+  color: var(--label);
 }
 .modal-wrapper .my-modal.add-task-modal .create-btn {
   height: 40px;
@@ -309,7 +322,7 @@
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--medium-grey);
+  color: var(--label);
 }
 .modal-wrapper .my-modal.add-task-modal .selector {
   height: 40px;
@@ -318,6 +331,8 @@
   font-weight: 500;
   line-height: 23px;
   border: 1px solid rgba(130, 143, 163, 0.25);
+  background-color: var(--primary-bg-color);
+  color: var(--clear-text);
 }
 .modal-wrapper .my-modal.add-task-modal .selector:focus {
   outline: 1px solid var(--main-purple);

@@ -55,7 +55,8 @@ export const Header = (props?: Props) => {
           {width >= 768 ? (
             <>
               <div className="img-wrapper p-3 h-100 align-items-center d-flex flex-shrink-0">
-                <img src={logo} alt="logo" height={"25px"} />
+                <img src={mobileLogo} alt="logo" height={"25px"} />
+                <p className="logo-title">Kanban</p>
               </div>
               <p className={`board-name p-3 h-100 text-center`}>
                 {currentBoard?.name}

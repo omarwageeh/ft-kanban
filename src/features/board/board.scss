@@ -5,6 +5,14 @@
 .board {
   overflow: auto;
 }
+.col-name {
+  color: var(--clear-text);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
 
 @media only screen and (max-width: 768px) {
   .margin-left {

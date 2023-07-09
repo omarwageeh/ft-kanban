@@ -7,10 +7,12 @@
 @import "./features/empty-board/emptyBoard.css";
 @import "./modals/modals.css";
 
-:root {
+.light-theme {
   --primary-bg-color: #ffff;
   --secondary-bg-color: #f4f7fd;
   --white-text: #fff;
+  --clear-text: #000112;
+  --label: #828fa3;
   --main-purple: #635fc7;
   --main-purple-hover: #a8a4ff;
   --medium-grey: #828fa3;
@@ -24,6 +26,27 @@
     180deg,
     #e9effa 0%,
     rgba(233, 239, 250, 0.5) 100%
+  );
+}
+.dark-theme {
+  --primary-bg-color: #2b2c37;
+  --secondary-bg-color: #20212c;
+  --white-text: #ffff;
+  --clear-text: #ffff;
+  --label: #ffff;
+  --main-purple: #635fc7;
+  --main-purple-hover: #a8a4ff;
+  --medium-grey: #828fa3;
+  --black: black;
+  --lines-light: #3e3f4e;
+  --secondary-btn: #ffffff;
+  --secondary-btn-hover: #ffffff;
+  --red: #ea5555;
+  --red-hover: #ff9898;
+  --new-col-bg: linear-gradient(
+    180deg,
+    rgba(43, 44, 55, 0.25) 0%,
+    rgba(43, 44, 55, 0.13) 100%
   );
 }
 .main-body {

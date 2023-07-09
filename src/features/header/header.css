@@ -9,6 +9,13 @@
   width: 300px;
   border-right: 1px solid var(--lines-light);
 }
+.header .img-wrapper .logo-title {
+  color: var(--clear-text);
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-left: 12px;
+}
 .header .add-new-button {
   width: 164px;
   height: 48px;
@@ -26,6 +33,7 @@
   font-style: normal;
   font-weight: 700;
   margin-bottom: 0px;
+  color: var(--clear-text);
 }
 .header .dots-button {
   cursor: pointer;

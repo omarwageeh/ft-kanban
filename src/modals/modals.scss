@@ -23,6 +23,8 @@
         line-height: 23px;
         padding: 8px 16px;
         border: 1px solid rgba(130, 143, 163, 0.25);
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         border-radius: 4px;
         &:focus {
           outline: 1px solid var(--main-purple);
@@ -30,7 +32,7 @@
       }
 
       .edit-modal-title {
-        color: var(--black);
+        color: var(--clear-text);
         font-size: 18px;
         font-weight: 700;
       }
@@ -50,13 +52,14 @@
         font-weight: 700;
         line-height: normal;
         margin-bottom: 8px;
+        color: var(--label);
       }
       .selector-label {
         margin-bottom: 8px;
         font-size: 12px;
         font-weight: 700;
 
-        color: var(--medium-grey);
+        color: var(--label);
       }
       .selector {
         // width: 416px;
@@ -66,6 +69,8 @@
         font-weight: 500;
         line-height: 23px;
         border: 1px solid rgba(130, 143, 163, 0.25);
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         &:focus {
           outline: 1px solid var(--main-purple);
         }
@@ -95,6 +100,8 @@
         padding: 8px 16px;
         border: 1px solid rgba(130, 143, 163, 0.25);
         border-radius: 4px;
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         &:focus {
           outline: 1px solid var(--main-purple);
         }
@@ -111,7 +118,7 @@
       }
 
       .edit-board-modal-title {
-        color: var(--black);
+        color: var(--clear-text);
         font-size: 18px;
         font-weight: 700;
       }
@@ -122,6 +129,7 @@
         font-weight: 700;
         line-height: normal;
         margin-bottom: 8px;
+        color: var(--label);
       }
       .scroll-columns {
         max-height: 300px;
@@ -163,7 +171,7 @@
 
     &.task-modal {
       .task-modal-title {
-        color: var(--black);
+        color: var(--clear-text);
         font-size: 18px;
         font-weight: 700;
       }
@@ -229,6 +237,8 @@
         font-size: 13px;
         font-weight: 500;
         line-height: 23px;
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         border: 1px solid rgba(130, 143, 163, 0.25);
 
         &:focus {
@@ -286,6 +296,8 @@
         line-height: 23px;
         padding: 8px 16px;
         border: 1px solid rgba(130, 143, 163, 0.25);
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         border-radius: 4px;
         &:focus {
           outline: 1px solid var(--main-purple);
@@ -305,7 +317,7 @@
       }
 
       .add-task-modal-title {
-        color: var(--black);
+        color: var(--clear-text);
         font-size: 18px;
         font-weight: 700;
       }
@@ -316,6 +328,7 @@
         font-weight: 700;
         line-height: normal;
         margin-bottom: 8px;
+        color: var(--label);
       }
 
       .create-btn {
@@ -339,7 +352,7 @@
         font-size: 12px;
         font-weight: 700;
 
-        color: var(--medium-grey);
+        color: var(--label);
       }
       .selector {
         // width: 416px;
@@ -349,6 +362,8 @@
         font-weight: 500;
         line-height: 23px;
         border: 1px solid rgba(130, 143, 163, 0.25);
+        background-color: var(--primary-bg-color);
+        color: var(--clear-text);
         &:focus {
           outline: 1px solid var(--main-purple);
         }
